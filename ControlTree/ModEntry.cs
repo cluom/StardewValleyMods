@@ -44,12 +44,27 @@ internal class ModEntry : Mod
         if (Config.ChangeOak) TreePatch.ChangeTreeType(TreeTypeEnum.Oak.Id);
         if (Config.ChangeMaple) TreePatch.ChangeTreeType(TreeTypeEnum.Maple.Id);
         if (Config.ChangePine) TreePatch.ChangeTreeType(TreeTypeEnum.Pine.Id);
-        if (Config.ChangePine) TreePatch.ChangeTreeType(TreeTypeEnum.Mushroom.Id);
+        if (Config.ChangeMushroom) TreePatch.ChangeTreeType(TreeTypeEnum.Mushroom.Id);
         if (Config.ChangeMahogany) TreePatch.ChangeTreeType(TreeTypeEnum.Mahogany.Id);
         if (Config.ChangeGreenRainType1) TreePatch.ChangeTreeType(TreeTypeEnum.GreenRainType1.Id);
         if (Config.ChangeGreenRainType2) TreePatch.ChangeTreeType(TreeTypeEnum.GreenRainType2.Id);
         if (Config.ChangeGreenRainType3) TreePatch.ChangeTreeType(TreeTypeEnum.GreenRainType3.Id);
         if (Config.ChangeMystic) TreePatch.ChangeTreeType(TreeTypeEnum.Mystic.Id);
+
+        // 里奇赛德村果树 - 仅在检测到 RSV 模组时注册
+        bool isRidgesideLoaded = Helper.ModRegistry.IsLoaded("Rafseazz.RSVCP");
+        if (isRidgesideLoaded)
+        {
+            Monitor.Log("Ridgeside Village detected, registering custom fruit trees.");
+            if (Config.ChangeCherryPluot) TreePatch.ChangeTreeType(TreeTypeEnum.CherryPluot.Id);
+            if (Config.ChangeDesertTangelo) TreePatch.ChangeTreeType(TreeTypeEnum.DesertTangelo.Id);
+            if (Config.ChangeEmberBloodLime) TreePatch.ChangeTreeType(TreeTypeEnum.EmberBloodLime.Id);
+            if (Config.ChangeHighlandJostaberry) TreePatch.ChangeTreeType(TreeTypeEnum.HighlandJostaberry.Id);
+            if (Config.ChangeMountainPlumcot) TreePatch.ChangeTreeType(TreeTypeEnum.MountainPlumcot.Id);
+            if (Config.ChangeNorthernLimequat) TreePatch.ChangeTreeType(TreeTypeEnum.NorthernLimequat.Id);
+            if (Config.ChangeParadiseRangpur) TreePatch.ChangeTreeType(TreeTypeEnum.ParadiseRangpur.Id);
+            if (Config.ChangeTropiUgliFruit) TreePatch.ChangeTreeType(TreeTypeEnum.TropiUgliFruit.Id);
+        }
 
         // 初始化高亮树木种子和树苗的高亮框颜色(用于配置界面)
         _highlightTreeSeedColor = Config.HighlightTreeSeedColor;
@@ -65,7 +80,7 @@ internal class ModEntry : Mod
         }
 
         // 初始化补丁类 传递了配置和监视器
-        TreePatch.InitConfig(Config);
+        TreePatch.InitConfig(Config, Monitor);
         SpriteBatchPatch.InitConfig(Config);
 
         // 启用Harmony补丁
@@ -133,10 +148,10 @@ internal class ModEntry : Mod
             save: () => Helper.WriteConfig(Config)
         );
 
-        // 标题
+        // ===== 主页 - 通用设置 =====
         configMenu.AddSectionTitle(
             mod: ModManifest,
-            text: () => Helper.Translation.Get("config.title.text")
+            text: () => Helper.Translation.Get("config.section_general")
         );
         // 模组开关
         configMenu.AddBoolOption(
@@ -154,7 +169,7 @@ internal class ModEntry : Mod
             getValue: () => Config.ModEnableToggleKey,
             setValue: value => Config.ModEnableToggleKey = value
         );
-        // 树木缩小开关
+        // 贴图替换开关
         configMenu.AddBoolOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.texture_change.name"),
@@ -162,7 +177,7 @@ internal class ModEntry : Mod
             getValue: () => Config.TextureChange,
             setValue: value => Config.TextureChange = value
         );
-        // 树木缩小开关快捷键
+        // 贴图替换开关快捷键
         configMenu.AddKeybindList(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.texture_change_toggle_key.name"),
@@ -170,7 +185,7 @@ internal class ModEntry : Mod
             getValue: () => Config.TextureChangeToggleKey,
             setValue: value => Config.TextureChangeToggleKey = value
         );
-        // 树木缩小开关
+        // 缩小树木开关
         configMenu.AddBoolOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.minish_tree.name"),
@@ -178,7 +193,7 @@ internal class ModEntry : Mod
             getValue: () => Config.MinishTree,
             setValue: value => Config.MinishTree = value
         );
-        // 树木缩小开关快捷键
+        // 缩小树木开关快捷键
         configMenu.AddKeybindList(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.minish_tree_toggle_key.name"),
@@ -186,7 +201,7 @@ internal class ModEntry : Mod
             getValue: () => Config.MinishTreeToggleKey,
             setValue: value => Config.MinishTreeToggleKey = value
         );
-        // 树木透明开关
+        // 透明遮挡树种的树
         configMenu.AddBoolOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.transparent_tree.name"),
@@ -194,7 +209,7 @@ internal class ModEntry : Mod
             getValue: () => Config.TransparentTree,
             setValue: value => Config.TransparentTree = value
         );
-        // 树木种子提示开关
+        // 树种提示开关
         configMenu.AddBoolOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.show_tree_seed_tips.name"),
@@ -202,7 +217,7 @@ internal class ModEntry : Mod
             getValue: () => Config.ShowTreeSeedTips,
             setValue: value => Config.ShowTreeSeedTips = value
         );
-        // 树木种子提示开关快捷键
+        // 树种提示快捷键
         configMenu.AddKeybindList(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.show_tree_seed_tips_toggle_key.name"),
@@ -210,7 +225,7 @@ internal class ModEntry : Mod
             getValue: () => Config.ShowTreeSeedTipsToggleKey,
             setValue: value => Config.ShowTreeSeedTipsToggleKey = value
         );
-        // 树木苔藓提示开关
+        // 苔藓提示开关
         configMenu.AddBoolOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.show_tree_moss_tips.name"),
@@ -218,7 +233,7 @@ internal class ModEntry : Mod
             getValue: () => Config.ShowTreeMossTips,
             setValue: value => Config.ShowTreeMossTips = value
         );
-        // 树木苔藓提示开关快捷键
+        // 苔藓提示快捷键
         configMenu.AddKeybindList(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.show_tree_moss_tips_toggle_key.name"),
@@ -226,7 +241,7 @@ internal class ModEntry : Mod
             getValue: () => Config.ShowTreeMossTipsToggleKey,
             setValue: value => Config.ShowTreeMossTipsToggleKey = value
         );
-        // 树木种子高亮开关
+        // 高亮树种开关
         configMenu.AddBoolOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.highlight_tree_seed.name"),
@@ -242,7 +257,7 @@ internal class ModEntry : Mod
             getValue: () => Config.NotHighlightTreeSeedByFertilized,
             setValue: value => Config.NotHighlightTreeSeedByFertilized = value
         );
-        // 树木种子高亮开关快捷键
+        // 高亮树种快捷键
         configMenu.AddKeybindList(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.highlight_tree_seed_toggle_key.name"),
@@ -250,12 +265,12 @@ internal class ModEntry : Mod
             getValue: () => Config.HighlightTreeSeedToggleKey,
             setValue: value => Config.HighlightTreeSeedToggleKey = value
         );
-        // 树木种子高亮颜色贴图
+        // 树种高亮颜色预览
         configMenu.AddImage(
             mod: ModManifest,
             texture: () => _highlightTreeSeedColorTexture
         );
-        // 树木种子高亮颜色的R值
+        // 树种高亮颜色R
         configMenu.AddNumberOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.highlight_tree_seed_color.name"),
@@ -278,7 +293,7 @@ internal class ModEntry : Mod
                 return $"R: {i:X}";
             }
         );
-        // 树木种子高亮颜色的G值
+        // 树种高亮颜色G
         configMenu.AddNumberOption(
             mod: ModManifest,
             name: () => "",
@@ -300,7 +315,7 @@ internal class ModEntry : Mod
                 return $"G: {i:X}";
             }
         );
-        // 树木种子高亮颜色的B值
+        // 树种高亮颜色B
         configMenu.AddNumberOption(
             mod: ModManifest,
             name: () => "",
@@ -322,7 +337,7 @@ internal class ModEntry : Mod
                 return $"B: {i:X}";
             }
         );
-        // 树苗高亮开关
+        // 高亮树苗开关
         configMenu.AddBoolOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.highlight_sapling.name"),
@@ -330,12 +345,12 @@ internal class ModEntry : Mod
             getValue: () => Config.HighlightSapling,
             setValue: value => Config.HighlightSapling = value
         );
-        // 树苗高亮颜色贴图
+        // 树苗高亮颜色预览
         configMenu.AddImage(
             mod: ModManifest,
             texture: () => _highlightSaplingColorTexture
         );
-        // 树苗高亮颜色的R值
+        // 树苗高亮颜色R
         configMenu.AddNumberOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.highlight_sapling_color.name"),
@@ -358,7 +373,7 @@ internal class ModEntry : Mod
                 return $"R: {i:X}";
             }
         );
-        // 树苗高亮颜色的G值
+        // 树苗高亮颜色G
         configMenu.AddNumberOption(
             mod: ModManifest,
             name: () => "",
@@ -380,7 +395,7 @@ internal class ModEntry : Mod
                 return $"G: {i:X}";
             }
         );
-        // 树苗高亮颜色的B值
+        // 树苗高亮颜色B
         configMenu.AddNumberOption(
             mod: ModManifest,
             name: () => "",
@@ -402,7 +417,7 @@ internal class ModEntry : Mod
                 return $"B: {i:X}";
             }
         );
-        // 隐藏树液采集器的产物
+        // 隐藏树液采集器产物
         configMenu.AddBoolOption(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.hide_tapper_product.name"),
@@ -418,7 +433,7 @@ internal class ModEntry : Mod
             getValue: () => Config.RenderTreeTrunk,
             setValue: value => Config.RenderTreeTrunk = value
         );
-        // 渲染树干开关快捷键
+        // 渲染树干快捷键
         configMenu.AddKeybindList(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.render_tree_trunk_toggle_key.name"),
@@ -434,7 +449,7 @@ internal class ModEntry : Mod
             getValue: () => Config.RenderLeafyShadow,
             setValue: value => Config.RenderLeafyShadow = value
         );
-        // 渲染树叶影子开关快捷键
+        // 渲染树叶影子快捷键
         configMenu.AddKeybindList(
             mod: ModManifest,
             name: () => Helper.Translation.Get("config.render_leafy_shadow_toggle_key.name"),
@@ -442,10 +457,39 @@ internal class ModEntry : Mod
             getValue: () => Config.RenderLeafyShadowToggleKey,
             setValue: value => Config.RenderLeafyShadowToggleKey = value
         );
-        // 空行
-        configMenu.AddParagraph(
+
+        // ===== 主页 - 页面导航 =====
+        configMenu.AddPageLink(
             mod: ModManifest,
-            text: () => ""
+            pageId: "vanilla_trees",
+            text: () => Helper.Translation.Get("config.page_vanilla_trees"),
+            tooltip: () => Helper.Translation.Get("config.page_vanilla_trees_tooltip")
+        );
+        configMenu.AddPageLink(
+            mod: ModManifest,
+            pageId: "vanilla_fruit_trees",
+            text: () => Helper.Translation.Get("config.page_vanilla_fruit_trees"),
+            tooltip: () => Helper.Translation.Get("config.page_vanilla_fruit_trees_tooltip")
+        );
+        if (Helper.ModRegistry.IsLoaded("Rafseazz.RSVCP"))
+        {
+            configMenu.AddPageLink(
+                mod: ModManifest,
+                pageId: "ridgeside_fruit_trees",
+                text: () => Helper.Translation.Get("config.page_ridgeside_fruit_trees"),
+                tooltip: () => Helper.Translation.Get("config.page_ridgeside_fruit_trees_tooltip")
+            );
+        }
+
+        // ===== 原版树页面 =====
+        configMenu.AddPage(
+            mod: ModManifest,
+            pageId: "vanilla_trees",
+            pageTitle: () => Helper.Translation.Get("config.page_vanilla_trees")
+        );
+        configMenu.AddSectionTitle(
+            mod: ModManifest,
+            text: () => Helper.Translation.Get("config.section_vanilla_trees")
         );
         // 橡树
         configMenu.AddBoolOption(
@@ -555,5 +599,175 @@ internal class ModEntry : Mod
                 TreePatch.ChangeTreeType(TreeTypeEnum.Mystic.Id, value);
             }
         );
+
+        // ===== 原版果树页面 =====
+        configMenu.AddPage(
+            mod: ModManifest,
+            pageId: "vanilla_fruit_trees",
+            pageTitle: () => Helper.Translation.Get("config.page_vanilla_fruit_trees")
+        );
+        configMenu.AddSectionTitle(
+            mod: ModManifest,
+            text: () => Helper.Translation.Get("config.section_vanilla_fruit_trees")
+        );
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.change_cherry.name"),
+            tooltip: () => Helper.Translation.Get("config.change_cherry.tooltip"),
+            getValue: () => Config.ChangeCherry,
+            setValue: value => Config.ChangeCherry = value
+        );
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.change_apricot.name"),
+            tooltip: () => Helper.Translation.Get("config.change_apricot.tooltip"),
+            getValue: () => Config.ChangeApricot,
+            setValue: value => Config.ChangeApricot = value
+        );
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.change_orange.name"),
+            tooltip: () => Helper.Translation.Get("config.change_orange.tooltip"),
+            getValue: () => Config.ChangeOrange,
+            setValue: value => Config.ChangeOrange = value
+        );
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.change_pomegranate.name"),
+            tooltip: () => Helper.Translation.Get("config.change_pomegranate.tooltip"),
+            getValue: () => Config.ChangePomegranate,
+            setValue: value => Config.ChangePomegranate = value
+        );
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.change_peach.name"),
+            tooltip: () => Helper.Translation.Get("config.change_peach.tooltip"),
+            getValue: () => Config.ChangePeach,
+            setValue: value => Config.ChangePeach = value
+        );
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.change_apple.name"),
+            tooltip: () => Helper.Translation.Get("config.change_apple.tooltip"),
+            getValue: () => Config.ChangeApple,
+            setValue: value => Config.ChangeApple = value
+        );
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.change_banana.name"),
+            tooltip: () => Helper.Translation.Get("config.change_banana.tooltip"),
+            getValue: () => Config.ChangeBanana,
+            setValue: value => Config.ChangeBanana = value
+        );
+
+        // ===== 里奇赛德村果树页面 =====
+        if (Helper.ModRegistry.IsLoaded("Rafseazz.RSVCP"))
+        {
+            configMenu.AddPage(
+                mod: ModManifest,
+                pageId: "ridgeside_fruit_trees",
+                pageTitle: () => Helper.Translation.Get("config.page_ridgeside_fruit_trees")
+            );
+            configMenu.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("config.section_ridgeside_fruit_trees")
+            );
+            // Cherry Pluot Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_cherry_pluot.name"),
+                tooltip: () => Helper.Translation.Get("config.change_cherry_pluot.tooltip"),
+                getValue: () => Config.ChangeCherryPluot,
+                setValue: value =>
+                {
+                    Config.ChangeCherryPluot = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.CherryPluot.Id, value);
+                }
+            );
+            // Desert Tangelo Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_desert_tangelo.name"),
+                tooltip: () => Helper.Translation.Get("config.change_desert_tangelo.tooltip"),
+                getValue: () => Config.ChangeDesertTangelo,
+                setValue: value =>
+                {
+                    Config.ChangeDesertTangelo = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.DesertTangelo.Id, value);
+                }
+            );
+            // Ember Blood Lime Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_ember_blood_lime.name"),
+                tooltip: () => Helper.Translation.Get("config.change_ember_blood_lime.tooltip"),
+                getValue: () => Config.ChangeEmberBloodLime,
+                setValue: value =>
+                {
+                    Config.ChangeEmberBloodLime = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.EmberBloodLime.Id, value);
+                }
+            );
+            // Highland Jostaberry Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_highland_jostaberry.name"),
+                tooltip: () => Helper.Translation.Get("config.change_highland_jostaberry.tooltip"),
+                getValue: () => Config.ChangeHighlandJostaberry,
+                setValue: value =>
+                {
+                    Config.ChangeHighlandJostaberry = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.HighlandJostaberry.Id, value);
+                }
+            );
+            // Mountain Plumcot Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_mountain_plumcot.name"),
+                tooltip: () => Helper.Translation.Get("config.change_mountain_plumcot.tooltip"),
+                getValue: () => Config.ChangeMountainPlumcot,
+                setValue: value =>
+                {
+                    Config.ChangeMountainPlumcot = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.MountainPlumcot.Id, value);
+                }
+            );
+            // Northern Limequat Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_northern_limequat.name"),
+                tooltip: () => Helper.Translation.Get("config.change_northern_limequat.tooltip"),
+                getValue: () => Config.ChangeNorthernLimequat,
+                setValue: value =>
+                {
+                    Config.ChangeNorthernLimequat = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.NorthernLimequat.Id, value);
+                }
+            );
+            // Paradise Rangpur Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_paradise_rangpur.name"),
+                tooltip: () => Helper.Translation.Get("config.change_paradise_rangpur.tooltip"),
+                getValue: () => Config.ChangeParadiseRangpur,
+                setValue: value =>
+                {
+                    Config.ChangeParadiseRangpur = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.ParadiseRangpur.Id, value);
+                }
+            );
+            // Tropi Ugli Fruit Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_tropi_ugli_fruit.name"),
+                tooltip: () => Helper.Translation.Get("config.change_tropi_ugli_fruit.tooltip"),
+                getValue: () => Config.ChangeTropiUgliFruit,
+                setValue: value =>
+                {
+                    Config.ChangeTropiUgliFruit = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.TropiUgliFruit.Id, value);
+                }
+            );
+        }
     }
 }

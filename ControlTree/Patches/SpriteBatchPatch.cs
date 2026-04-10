@@ -18,6 +18,9 @@ public static class SpriteBatchPatch
     // 用于设置要替换的贴图
     public static Texture2D? Texture { get; set; }
 
+    // 强制缩小（用于 FruitTree 等独立渲染的树木）
+    public static bool ForceMinish { get; set; }
+
     public static void InitConfig(ModConfig config)
     {
         Config = config;
@@ -70,45 +73,53 @@ public static class SpriteBatchPatch
                 return true;
         }
 
+        // 如果要替换贴图 并且 当前渲染的不是影子 则替换贴图
+        // 当 CanChange 为 true 且 Texture 被设置时（来自 FruitTreePatch），无条件替换
+        bool isReplacingTexture =
+            (Config is { TextureChange: true } || CanChange) &&
+            Texture is not null &&
+            texture != Game1.mouseCursors &&
+            texture != Game1.mouseCursors_1_6;
+
+        if (isReplacingTexture)
+        {
+            texture = Texture!;
+        }
+
         // 如果 要缩小树 或 (要替换贴图 并且 当前渲染的是影子)
+        // 注意：替换贴图已是预缩放版本，不再额外缩放；阴影始终单独缩放以匹配缩小后的树
+        // ForceMinish 用于 FruitTree 等独立渲染系统，使用预缩放贴图，不调整位置
         if (
-            Config is { MinishTree: true } || (
-                Config is { TextureChange: true } && (
-                    texture == Game1.mouseCursors ||
-                    texture == Game1.mouseCursors_1_6
-                )
+            ForceMinish ||
+            Config is { MinishTree: true } && !isReplacingTexture ||
+            Config is { TextureChange: true } && (
+                texture == Game1.mouseCursors ||
+                texture == Game1.mouseCursors_1_6
             )
         )
         {
             // 缩小比例
             scale *= 0.5f;
 
-            if (sourceRectangle is not null)
+            if (!ForceMinish)
             {
-                // 根据源矩形信息调整位置
-                var rect = sourceRectangle.Value;
-                position.X += rect.Width;
-                position.Y += rect.Height;
-                if (texture != Game1.mouseCursors && texture != Game1.mouseCursors_1_6)
+                // 只有 MinishTree（代码缩放）才需要调整位置，预缩放贴图不需要
+                if (sourceRectangle is not null)
                 {
-                    position.Y += 16f;
+                    // 根据源矩形信息调整位置
+                    var rect = sourceRectangle.Value;
+                    position.X += rect.Width;
+                    position.Y += rect.Height;
+                    if (texture != Game1.mouseCursors && texture != Game1.mouseCursors_1_6)
+                    {
+                        position.Y += 16f;
+                    }
                 }
+
+                // 根据原点调整位置
+                position -= origin * 2f;
+                position.Y += origin.Y * 0.75f;
             }
-
-            // 根据原点调整位置
-            position -= origin * 2f;
-            position.Y += origin.Y * 0.75f;
-        }
-
-        // 如果要替换贴图 并且 当前渲染的不是影子 则替换贴图
-        if (
-            Config is { TextureChange: true } &&
-            Texture is not null &&
-            texture != Game1.mouseCursors &&
-            texture != Game1.mouseCursors_1_6
-        )
-        {
-            texture = Texture;
         }
 
         return true;

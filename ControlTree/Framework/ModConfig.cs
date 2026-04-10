@@ -97,5 +97,46 @@ namespace ControlTree.Framework
 
         // 神秘树
         public bool ChangeMystic { get; set; } = true;
+
+        // ===== 原版果树 =====
+        // 行 0: 樱桃
+        public bool ChangeCherry { get; set; } = true;
+        // 行 1: 杏子
+        public bool ChangeApricot { get; set; } = true;
+        // 行 2: 橙子
+        public bool ChangeOrange { get; set; } = true;
+        // 行 3: 石榴
+        public bool ChangePomegranate { get; set; } = true;
+        // 行 4: 桃子
+        public bool ChangePeach { get; set; } = true;
+        // 行 5: 苹果
+        public bool ChangeApple { get; set; } = true;
+        // 行 6: 香蕉
+        public bool ChangeBanana { get; set; } = true;
+
+        // ===== 里奇赛德村果树 =====
+        // Cherry Pluot Tree
+        public bool ChangeCherryPluot { get; set; } = true;
+
+        // Desert Tangelo Tree
+        public bool ChangeDesertTangelo { get; set; } = true;
+
+        // Ember Blood Lime Tree
+        public bool ChangeEmberBloodLime { get; set; } = true;
+
+        // Highland Jostaberry Tree
+        public bool ChangeHighlandJostaberry { get; set; } = true;
+
+        // Mountain Plumcot Tree
+        public bool ChangeMountainPlumcot { get; set; } = true;
+
+        // Northern Limequat Tree
+        public bool ChangeNorthernLimequat { get; set; } = true;
+
+        // Paradise Rangpur Tree
+        public bool ChangeParadiseRangpur { get; set; } = true;
+
+        // Tropi Ugli Fruit Tree
+        public bool ChangeTropiUgliFruit { get; set; } = true;
     }
 }

@@ -15,10 +15,19 @@ public static class TreePatch
 {
     // ReSharper disable once InconsistentNaming
     // 模组配置
-    private static ModConfig? Config;
+    private static ModConfig? _config;
 
     // 被控制的树木集合
     private static readonly HashSet<NetString> ControlTreeType = new();
+
+    // 用于字符串值比较的集合（解决 NetString 引用相等的问题）
+    private static readonly HashSet<string> ControlTreeTypeValues = new();
+
+    // 调试用 Monitor
+    private static IMonitor? LogMonitor;
+
+    // 供外部访问的配置
+    internal static ModConfig? Config => _config;
 
     // 贴图映射
     public static readonly Dictionary<string, Texture2D> TextureMapping = new();
@@ -32,23 +41,30 @@ public static class TreePatch
         HighlightBoxTexture = CreateTransparentTexture(60, 60, 4);
     }
 
-    public static void InitConfig(ModConfig config)
+    public static void InitConfig(ModConfig config, IMonitor monitor)
     {
-        Config = config;
+        _config = config;
+        LogMonitor = monitor;
     }
 
     // 用于添加或移除被控制的树木
     public static void ChangeTreeType(NetString treeType, bool flag = true)
     {
+        var value = treeType.Value;
         if (flag)
         {
             ControlTreeType.Add(treeType);
+            if (value != null) ControlTreeTypeValues.Add(value);
             return;
         }
 
         if (ControlTreeType.Contains(treeType))
         {
             ControlTreeType.Remove(treeType);
+        }
+        if (value != null && ControlTreeTypeValues.Contains(value))
+        {
+            ControlTreeTypeValues.Remove(value);
         }
     }
 
@@ -224,9 +240,11 @@ public static class TreePatch
         }
 
         var treeType = __instance.treeType;
+        var treeTypeValue = treeType.Value;
 
         // 如果树木不在被控制的树木集合中 或者 树木是树桩且不是倒下的树木 或者 树木生长阶段小于5 则返回
-        if (!ControlTreeType.Contains(treeType))
+        // 使用字符串值比较解决 NetString 引用相等的问题
+        if (treeTypeValue == null || (!ControlTreeTypeValues.Contains(treeTypeValue) && !treeTypeValue.StartsWith("Rafseazz.RSVCP")))
         {
             return;
         }
