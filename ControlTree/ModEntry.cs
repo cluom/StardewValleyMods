@@ -240,6 +240,14 @@ internal class ModEntry : Mod
             getValue: () => Config.ShowTreeSeedTipsToggleKey,
             setValue: value => Config.ShowTreeSeedTipsToggleKey = value
         );
+        // 有采集器时是否显示种子提示
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.show_tree_seed_tip_when_tapper_installed.name"),
+            tooltip: () => Helper.Translation.Get("config.show_tree_seed_tip_when_tapper_installed.tooltip"),
+            getValue: () => Config.ShowTreeSeedTipWhenTapperInstalled,
+            setValue: value => Config.ShowTreeSeedTipWhenTapperInstalled = value
+        );
         // 苔藓提示开关
         configMenu.AddBoolOption(
             mod: ModManifest,

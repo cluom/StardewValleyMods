@@ -29,6 +29,9 @@ namespace ControlTree.Framework
         // 树木种子提示开关
         public bool ShowTreeSeedTips { get; set; } = true;
 
+        // 有树液采集器时是否显示种子提示（默认关闭，因为装了采集器无法摇树）
+        public bool ShowTreeSeedTipWhenTapperInstalled { get; set; } = false;
+
         // 树木种子提示开关快捷键
         public KeybindList ShowTreeSeedTipsToggleKey { get; set; } = KeybindList.Parse("");
 

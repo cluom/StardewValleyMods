@@ -221,13 +221,21 @@ public static class TreePatch
         // 绘制种子提示
         if (__instance.hasSeed.Value && Config.ShowTreeSeedTips && __instance.growthStage.Value >= 5)
         {
-            DrawTipItem(
-                __instance,
-                ItemRegistry.GetDataOrErrorItem(
-                    ItemRegistry.Create(__instance.GetData().SeedItemId).QualifiedItemId
-                ),
-                5f
-            );
+            // 检测树上是否装有树液采集器
+            bool hasTapper = Game1.currentLocation.objects.TryGetValue(__instance.Tile, out var tileObj) &&
+                             tileObj.IsTapper();
+            bool shouldShowSeedTip = !hasTapper || Config.ShowTreeSeedTipWhenTapperInstalled;
+
+            if (shouldShowSeedTip)
+            {
+                DrawTipItem(
+                    __instance,
+                    ItemRegistry.GetDataOrErrorItem(
+                        ItemRegistry.Create(__instance.GetData().SeedItemId).QualifiedItemId
+                    ),
+                    5f
+                );
+            }
         }
 
         // 绘制苔藓提示
@@ -259,9 +267,14 @@ public static class TreePatch
             return;
         }
 
-        // 如果不启用贴图替换则返回
+        // 如果不启用贴图替换，检查是否需要缩小（只缩小不换贴图）
         if (!Config!.TextureChange)
         {
+            if (Config.MinishTree)
+            {
+                // 不设置 ForceMinish，使用普通 MinishTree 路径（带位置修正）
+                SpriteBatchPatch.CanChange = true;
+            }
             return;
         }
 
@@ -293,5 +306,6 @@ public static class TreePatch
         // 重置各种标记
         SpriteBatchPatch.CanChange = false;
         SpriteBatchPatch.Texture = null;
+        SpriteBatchPatch.ForceMinish = false;
     }
 }

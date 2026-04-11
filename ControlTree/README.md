@@ -1,9 +1,5 @@
 [size=5]Control Tree | 树木渲染控制[/size]
 
-[url=https://www.nexusmods.com/stardewvalley/mods/23119]Nexus Mods[/url]
-作者 / Author: Cluom
-版本 / Version: 1.1.5
-
 通过修改树木的渲染逻辑来实现更好的视觉清晰度的模组。
 A mod that aims to achieve better visual clarity by modifying the rendering logic of trees.
 
@@ -37,7 +33,8 @@ A mod that aims to achieve better visual clarity by modifying the rendering logi
 
 [quote]
 可选依赖 / Optional Dependencies:
-Ridgeside Village - 支持里奇赛德村果树
+[url=https://www.nexusmods.com/stardewvalley/mods/23252]Ridgeside Village[/url] - 支持里奇赛德村果树 / Supports Ridgeside Village fruit trees
+[url=https://www.nexusmods.com/stardewvalley/mods/11138]Stardew Valley Expanded (SVE)[/url] - 支持 SVE 果树和野生树 / Supports SVE fruit trees and wild trees
 [/quote]
 
 [line]

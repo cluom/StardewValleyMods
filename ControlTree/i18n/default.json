@@ -38,6 +38,8 @@
   "config.show_tree_seed_tips.tooltip": "Check to add a tip to the tree when there are tree seeds",
   "config.show_tree_seed_tips_toggle_key.name": "Tree Seed Tips Shortcut Key",
   "config.show_tree_seed_tips_toggle_key.tooltip": "Shortcut key to control whether to show tree seed tips",
+  "config.show_tree_seed_tip_when_tapper_installed.name": "Show Seed Tip When Tapper Installed",
+  "config.show_tree_seed_tip_when_tapper_installed.tooltip": "When a tapper is installed on a tree, the player cannot shake it for seeds. Uncheck to hide the seed tip in that case (default: hidden).",
   "config.show_tree_moss_tips.name": "Show Moss Tips",
   "config.show_tree_moss_tips.tooltip": "Check to add a tip to the tree when there is moss",
   "config.show_tree_moss_tips_toggle_key.name": "Moss Tips Shortcut Key",
