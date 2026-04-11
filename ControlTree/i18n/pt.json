@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "Aplicar a <Rangpur do Paraíso>",
   "config.change_paradise_rangpur.tooltip": "Marque para aplicar as configurações acima a <Rangpur do Paraíso>",
   "config.change_tropi_ugli_fruit.name": "Aplicar a <Fruta Tropi Ugli>",
-  "config.change_tropi_ugli_fruit.tooltip": "Marque para aplicar as configurações acima a <Fruta Tropi Ugli>"
+  "config.change_tropi_ugli_fruit.tooltip": "Marque para aplicar as configurações acima a <Fruta Tropi Ugli>",
+  "config.page_sve_trees": "Árvores SVE",
+  "config.page_sve_trees_tooltip": "Configure em quais árvores SVE aplicar os efeitos.",
+  "config.section_sve_fruit_trees": "Árvores frutíferas SVE",
+  "config.section_sve_wild_trees": "Árvores selvagens SVE",
+  "config.change_pear.name": "Aplicar a <Pereira>",
+  "config.change_pear.tooltip": "Marque para aplicar as configurações acima a <Pereira>",
+  "config.change_nectarine.name": "Aplicar a <Nectarina>",
+  "config.change_nectarine.tooltip": "Marque para aplicar as configurações acima a <Nectarina>",
+  "config.change_persimmon.name": "Aplicar a <Caqui>",
+  "config.change_persimmon.tooltip": "Marque para aplicar as configurações acima a <Caqui>",
+  "config.change_money_tree.name": "Aplicar a <Árvore do dinheiro>",
+  "config.change_money_tree.tooltip": "Marque para aplicar as configurações acima a <Árvore do dinheiro>",
+  "config.change_birch.name": "Aplicar a <Bétula>",
+  "config.change_birch.tooltip": "Marque para aplicar as configurações acima a <Bétula>",
+  "config.change_fir.name": "Aplicar a <Abeto>",
+  "config.change_fir.tooltip": "Marque para aplicar as configurações acima a <Abeto>"
 }

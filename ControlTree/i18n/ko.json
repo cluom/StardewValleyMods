@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "<파라다이스 랑푸르>에 적용",
   "config.change_paradise_rangpur.tooltip": "체크하면 <파라다이스 랑푸르>에 위 설정을 적용합니다",
   "config.change_tropi_ugli_fruit.name": "<트로피 울기 프루트>에 적용",
-  "config.change_tropi_ugli_fruit.tooltip": "체크하면 <트로피 울기 프루트>에 위 설정을 적용합니다"
+  "config.change_tropi_ugli_fruit.tooltip": "체크하면 <트로피 울기 프루트>에 위 설정을 적용합니다",
+  "config.page_sve_trees": "SVE 나무",
+  "config.page_sve_trees_tooltip": "어떤 SVE 나무에 효과를 적용할지 설정합니다.",
+  "config.section_sve_fruit_trees": "SVE 과수",
+  "config.section_sve_wild_trees": "SVE 야생나무",
+  "config.change_pear.name": "<배나무>에 적용",
+  "config.change_pear.tooltip": "체크하면 <배나무>에 위 설정을 적용합니다",
+  "config.change_nectarine.name": "<핵사>에 적용",
+  "config.change_nectarine.tooltip": "체크하면 <핵사>에 위 설정을 적용합니다",
+  "config.change_persimmon.name": "<감나무>에 적용",
+  "config.change_persimmon.tooltip": "체크하면 <감나무>에 위 설정을 적용합니다",
+  "config.change_money_tree.name": "<금전나무>에 적용",
+  "config.change_money_tree.tooltip": "체크하면 <금전나무>에 위 설정을 적용합니다",
+  "config.change_birch.name": "<자작나무>에 적용",
+  "config.change_birch.tooltip": "체크하면 <자작나무>에 위 설정을 적용합니다",
+  "config.change_fir.name": "<전나무>에 적용",
+  "config.change_fir.tooltip": "체크하면 <전나무>에 위 설정을 적용합니다"
 }

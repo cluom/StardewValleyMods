@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "<Cennet Rangpur>Ağına Uygula",
   "config.change_paradise_rangpur.tooltip": "Yukarıdaki ayarları <Cennet Rangpur>Ağına uygulamak için işaretleyin",
   "config.change_tropi_ugli_fruit.name": "<Tropi Ugli Meyvesi>Ağacına Uygula",
-  "config.change_tropi_ugli_fruit.tooltip": "Yukarıdaki ayarları <Tropi Ugli Meyvesi>Ağacına uygulamak için işaretleyin"
+  "config.change_tropi_ugli_fruit.tooltip": "Yukarıdaki ayarları <Tropi Ugli Meyvesi>Ağacına uygulamak için işaretleyin",
+  "config.page_sve_trees": "SVE Ağaçları",
+  "config.page_sve_trees_tooltip": "Hangi SVE ağaçlarına efektlerin uygulanacağını yapılandırın.",
+  "config.section_sve_fruit_trees": "SVE Meyve Ağaçları",
+  "config.section_sve_wild_trees": "SVE Yabani Ağaçları",
+  "config.change_pear.name": "<Armut Ağacı>na Uygula",
+  "config.change_pear.tooltip": "İşaretle <Armut Ağacı>na yukarıdaki ayarları uygulamak için",
+  "config.change_nectarine.name": "<Erik Ağacı>na Uygula",
+  "config.change_nectarine.tooltip": "İşaretle <Erik Ağacı>na yukarıdaki ayarları uygulamak için",
+  "config.change_persimmon.name": "<Hurma Ağacı>na Uygula",
+  "config.change_persimmon.tooltip": "İşaretle <Hurma Ağacı>na yukarıdaki ayarları uygulamak için",
+  "config.change_money_tree.name": "<Para Ağacı>na Uygula",
+  "config.change_money_tree.tooltip": "İşaretle <Para Ağacı>na yukarıdaki ayarları uygulamak için",
+  "config.change_birch.name": "<Huş Ağacı>na Uygula",
+  "config.change_birch.tooltip": "İşaretle <Huş Ağacı>na yukarıdaki ayarları uygulamak için",
+  "config.change_fir.name": "<Köknar Ağacı>na Uygula",
+  "config.change_fir.tooltip": "İşaretle <Köknar Ağacı>na yukarıdaki ayarları uygulamak için"
 }

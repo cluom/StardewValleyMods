@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "<パラダイスランクプル>に適用",
   "config.change_paradise_rangpur.tooltip": "チェックすると<パラダイスランクプル>に上記の設定を適用します",
   "config.change_tropi_ugli_fruit.name": "<トロピウグリフルーツ>に適用",
-  "config.change_tropi_ugli_fruit.tooltip": "チェックすると<トロピウグリフルーツ>に上記の設定を適用します"
+  "config.change_tropi_ugli_fruit.tooltip": "チェックすると<トロピウグリフルーツ>に上記の設定を適用します",
+  "config.page_sve_trees": "SVE樹",
+  "config.page_sve_trees_tooltip": "どのSVEの木に効果を適用するかを設定します。",
+  "config.section_sve_fruit_trees": "SVE果樹",
+  "config.section_sve_wild_trees": "SVE野生樹",
+  "config.change_pear.name": "<梨の木>に適用",
+  "config.change_pear.tooltip": "チェックすると<梨の木>に上記の設定を適用します",
+  "config.change_nectarine.name": "<ネクタリン>に適用",
+  "config.change_nectarine.tooltip": "チェックすると<ネクタリン>に上記の設定を適用します",
+  "config.change_persimmon.name": "<柿の木>に適用",
+  "config.change_persimmon.tooltip": "チェックすると<柿の木>に上記の設定を適用します",
+  "config.change_money_tree.name": "<金運樹>に適用",
+  "config.change_money_tree.tooltip": "チェックすると<金運樹>に上記の設定を適用します",
+  "config.change_birch.name": "<白樺>に適用",
+  "config.change_birch.tooltip": "チェックすると<白樺>に上記の設定を適用します",
+  "config.change_fir.name": "<モミ>に適用",
+  "config.change_fir.tooltip": "チェックすると<モミ>に上記の設定を適用します"
 }

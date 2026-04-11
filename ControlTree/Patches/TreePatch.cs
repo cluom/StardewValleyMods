@@ -242,9 +242,9 @@ public static class TreePatch
         var treeType = __instance.treeType;
         var treeTypeValue = treeType.Value;
 
-        // 如果树木不在被控制的树木集合中 或者 树木是树桩且不是倒下的树木 或者 树木生长阶段小于5 则返回
+        // 如果树木不在被控制的树木集合中 则返回（依靠 ControlTreeTypeValues 配置检查，不绕过设置）
         // 使用字符串值比较解决 NetString 引用相等的问题
-        if (treeTypeValue == null || (!ControlTreeTypeValues.Contains(treeTypeValue) && !treeTypeValue.StartsWith("Rafseazz.RSVCP")))
+        if (treeTypeValue == null || !ControlTreeTypeValues.Contains(treeTypeValue))
         {
             return;
         }
@@ -259,6 +259,12 @@ public static class TreePatch
             return;
         }
 
+        // 如果不启用贴图替换则返回
+        if (!Config!.TextureChange)
+        {
+            return;
+        }
+
         // 设置标记CanChange为true
         SpriteBatchPatch.CanChange = true;
         if (__instance.TextureName is null)
@@ -267,7 +273,16 @@ public static class TreePatch
         }
 
         // 获取要替换的树木贴图 如果没有则返回 如果有则设置SpriteBatchPatch.Texture为对应的贴图
-        var key = __instance.TextureName.Replace("TerrainFeatures\\", "") + ".png";
+        var textureName = __instance.TextureName.Replace("TerrainFeatures\\", "");
+        // 移除Mods\\前缀（适用于SVE等mod的树）
+        if (textureName.StartsWith("Mods\\")) textureName = textureName.Substring(5);
+        // 移除mod ID前缀（适用于 FlashShifter.StardewValleyExpandedCP_Birch_Tree 格式）
+        if (textureName.Contains("_Tree") || textureName.Contains("_Sapling"))
+        {
+            var parts = textureName.Split('\\', '/');
+            textureName = parts[^1]; // 取最后一部分作为文件名
+        }
+        var key = textureName + ".png";
         if (TextureMapping.TryGetValue(key, out var value)) SpriteBatchPatch.Texture = value;
     }
 

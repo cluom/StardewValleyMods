@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "Appliquer au <Rangpur du paradis>",
   "config.change_paradise_rangpur.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Rangpur du paradis>",
   "config.change_tropi_ugli_fruit.name": "Appliquer à l<Fruit Tropi Ugli>",
-  "config.change_tropi_ugli_fruit.tooltip": "Cochez pour appliquer les paramètres ci-dessus à l<Fruit Tropi Ugli>"
+  "config.change_tropi_ugli_fruit.tooltip": "Cochez pour appliquer les paramètres ci-dessus à l<Fruit Tropi Ugli>",
+  "config.page_sve_trees": "Arbres SVE",
+  "config.page_sve_trees_tooltip": "Configurer les arbres SVE auxquels appliquer les effets.",
+  "config.section_sve_fruit_trees": "Arbres fruitiers SVE",
+  "config.section_sve_wild_trees": "Arbres sauvages SVE",
+  "config.change_pear.name": "Appliquer au <Poirier>",
+  "config.change_pear.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Poirier>",
+  "config.change_nectarine.name": "Appliquer au <Nectarine>",
+  "config.change_nectarine.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Nectarine>",
+  "config.change_persimmon.name": "Appliquer au <Kaki>",
+  "config.change_persimmon.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Kaki>",
+  "config.change_money_tree.name": "Appliquer à <Arbre à argent>",
+  "config.change_money_tree.tooltip": "Cochez pour appliquer les paramètres ci-dessus à <Arbre à argent>",
+  "config.change_birch.name": "Appliquer au <Bouleau>",
+  "config.change_birch.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Bouleau>",
+  "config.change_fir.name": "Appliquer au <Sapin>",
+  "config.change_fir.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Sapin>"
 }

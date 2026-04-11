@@ -30,15 +30,17 @@ public static class FruitTreePatch
         var config = TreePatch.Config;
 
         bool isRsv = data.Texture?.Contains("Rafseazz.RSVCP") == true;
+        bool isSve = data.Texture?.Contains("FlashShifter.StardewValleyExpandedCP") == true;
         // 原版果树：Texture 为 null（默认）或明确指向原版贴图
         string texturePath = data.Texture?.Replace("\\", "/") ?? "null";
-        bool isVanilla = !isRsv && (data.Texture == null || texturePath.Contains("TileSheets/fruitTrees"));
+        bool isVanilla = !isRsv && !isSve && (data.Texture == null || texturePath.Contains("TileSheets/fruitTrees"));
 
-        if (!isRsv && !isVanilla) return;
+        if (!isRsv && !isSve && !isVanilla) return;
 
         // 检查配置是否启用该类型
         if (isVanilla && !IsVanillaTreeEnabled(config, data)) return;
         if (isRsv && !IsRsvTreeEnabled(config, __instance)) return;
+        if (isSve && !IsSveTreeEnabled(config, __instance)) return;
 
         var textureKey = isRsv ? "fruit_trees_resized.png" : "vanilla_fruit_trees_resized.png";
 
@@ -92,6 +94,24 @@ public static class FruitTreePatch
             5 => config.ChangeNorthernLimequat,
             6 => config.ChangeParadiseRangpur,
             7 => config.ChangeTropiUgliFruit,
+            _ => true
+        };
+    }
+
+    private static bool IsSveTreeEnabled(ModConfig config, FruitTree tree)
+    {
+        // SVE 果树使用 TextureSpriteRow 来区分类型 (0-3)
+        // 从 FruitTreeData 获取 row
+        var data = tree.GetData();
+        int row = data?.TextureSpriteRow ?? 0;
+
+        // SVE 的 4 种果树按 row 排列
+        return row switch
+        {
+            0 => config.ChangePear,
+            1 => config.ChangeNectarine,
+            2 => config.ChangePersimmon,
+            3 => config.ChangeMoneyTree,
             _ => true
         };
     }

@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "Применить к <Райскому рангуру>",
   "config.change_paradise_rangpur.tooltip": "Отметьте, чтобы применить настройки к <Райскому рангуру>",
   "config.change_tropi_ugli_fruit.name": "Применить к <Тропическому уgli фрукту>",
-  "config.change_tropi_ugli_fruit.tooltip": "Отметьте, чтобы применить настройки к <Тропическому уgli фрукту>"
+  "config.change_tropi_ugli_fruit.tooltip": "Отметьте, чтобы применить настройки к <Тропическому уgli фрукту>",
+  "config.page_sve_trees": "Деревья SVE",
+  "config.page_sve_trees_tooltip": "Настройте, к каким деревьям SVE применять эффекты.",
+  "config.section_sve_fruit_trees": "Фруктовые деревья SVE",
+  "config.section_sve_wild_trees": "Дикие деревья SVE",
+  "config.change_pear.name": "Применить к <Груше>",
+  "config.change_pear.tooltip": "Отметьте, чтобы применить настройки к <Груше>",
+  "config.change_nectarine.name": "Применить к <Нектарину>",
+  "config.change_nectarine.tooltip": "Отметьте, чтобы применить настройки к <Нектарину>",
+  "config.change_persimmon.name": "Применить к <Хурме>",
+  "config.change_persimmon.tooltip": "Отметьте, чтобы применить настройки к <Хурме>",
+  "config.change_money_tree.name": "Применить к <Денежному дереву>",
+  "config.change_money_tree.tooltip": "Отметьте, чтобы применить настройки к <Денежному дереву>",
+  "config.change_birch.name": "Применить к <Берёзе>",
+  "config.change_birch.tooltip": "Отметьте, чтобы применить настройки к <Берёзе>",
+  "config.change_fir.name": "Применить к <Ели>",
+  "config.change_fir.tooltip": "Отметьте, чтобы применить настройки к <Ели>"
 }

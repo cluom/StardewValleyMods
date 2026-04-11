@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "Anwenden auf <Paradies-Rangpur-Baum>",
   "config.change_paradise_rangpur.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Paradies-Rangpur-Baum> anzuwenden",
   "config.change_tropi_ugli_fruit.name": "Anwenden auf <Tropi-Ugli-Frucht-Baum>",
-  "config.change_tropi_ugli_fruit.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Tropi-Ugli-Frucht-Baum> anzuwenden"
+  "config.change_tropi_ugli_fruit.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Tropi-Ugli-Frucht-Baum> anzuwenden",
+  "config.page_sve_trees": "SVE-Bäume",
+  "config.page_sve_trees_tooltip": "Konfigurieren Sie, auf welche SVE-Bäume die Effekte angewendet werden sollen.",
+  "config.section_sve_fruit_trees": "SVE Fruchtbäume",
+  "config.section_sve_wild_trees": "SVE Wildbäume",
+  "config.change_pear.name": "Anwenden auf <Birnbaum>",
+  "config.change_pear.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Birnbaum> anzuwenden",
+  "config.change_nectarine.name": "Anwenden auf <Nektarine>",
+  "config.change_nectarine.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Nektarine> anzuwenden",
+  "config.change_persimmon.name": "Anwenden auf <Kaki-Baum>",
+  "config.change_persimmon.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Kaki-Baum> anzuwenden",
+  "config.change_money_tree.name": "Anwenden auf <Geldbaum>",
+  "config.change_money_tree.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Geldbaum> anzuwenden",
+  "config.change_birch.name": "Anwenden auf <Birke>",
+  "config.change_birch.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Birke> anzuwenden",
+  "config.change_fir.name": "Anwenden auf <Tanne>",
+  "config.change_fir.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Tanne> anzuwenden"
 }

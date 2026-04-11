@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "Aplicar a <Rangpur del Paraíso>",
   "config.change_paradise_rangpur.tooltip": "Marcar para aplicar la configuración anterior a <Rangpur del Paraíso>",
   "config.change_tropi_ugli_fruit.name": "Aplicar a <Fruta Tropi Ugli>",
-  "config.change_tropi_ugli_fruit.tooltip": "Marcar para aplicar la configuración anterior a <Fruta Tropi Ugli>"
+  "config.change_tropi_ugli_fruit.tooltip": "Marcar para aplicar la configuración anterior a <Fruta Tropi Ugli>",
+  "config.page_sve_trees": "Árboles SVE",
+  "config.page_sve_trees_tooltip": "Configurar a qué árboles SVE aplicar los efectos.",
+  "config.section_sve_fruit_trees": "Árboles frutales SVE",
+  "config.section_sve_wild_trees": "Árboles silvestres SVE",
+  "config.change_pear.name": "Aplicar a <Peral>",
+  "config.change_pear.tooltip": "Marcar para aplicar la configuración anterior a <Peral>",
+  "config.change_nectarine.name": "Aplicar a <Nectarina>",
+  "config.change_nectarine.tooltip": "Marcar para aplicar la configuración anterior a <Nectarina>",
+  "config.change_persimmon.name": "Aplicar a <Kaki>",
+  "config.change_persimmon.tooltip": "Marcar para aplicar la configuración anterior a <Kaki>",
+  "config.change_money_tree.name": "Aplicar a <Árbol del dinero>",
+  "config.change_money_tree.tooltip": "Marcar para aplicar la configuración anterior a <Árbol del dinero>",
+  "config.change_birch.name": "Aplicar a <Abedul>",
+  "config.change_birch.tooltip": "Marcar para aplicar la configuración anterior a <Abedul>",
+  "config.change_fir.name": "Aplicar a <Abeto>",
+  "config.change_fir.tooltip": "Marcar para aplicar la configuración anterior a <Abeto>"
 }

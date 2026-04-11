@@ -62,5 +62,25 @@ namespace ControlTree.Framework
 
         // Rafseazz.RSVCP_Tropi_Ugli_Fruit : Tropi Ugli Fruit Tree
         public static readonly TreeTypeEnum TropiUgliFruit = new("Rafseazz.RSVCP_Tropi_Ugli_Fruit");
+
+        // ===== SVE 果树 =====
+        // FlashShifter.StardewValleyExpandedCP_Pear_Sapling : Pear Tree
+        public static readonly TreeTypeEnum Pear = new("FlashShifter.StardewValleyExpandedCP_Pear_Sapling");
+
+        // FlashShifter.StardewValleyExpandedCP_Nectarine_Sapling : Nectarine Tree
+        public static readonly TreeTypeEnum Nectarine = new("FlashShifter.StardewValleyExpandedCP_Nectarine_Sapling");
+
+        // FlashShifter.StardewValleyExpandedCP_Persimmon_Sapling : Persimmon Tree
+        public static readonly TreeTypeEnum Persimmon = new("FlashShifter.StardewValleyExpandedCP_Persimmon_Sapling");
+
+        // FlashShifter.StardewValleyExpandedCP_Tree_Coin : Money Tree
+        public static readonly TreeTypeEnum MoneyTree = new("FlashShifter.StardewValleyExpandedCP_Tree_Coin");
+
+        // ===== SVE 野生树 =====
+        // FlashShifter.StardewValleyExpandedCP_Birch_Tree : Birch Tree
+        public static readonly TreeTypeEnum Birch = new("FlashShifter.StardewValleyExpandedCP_Birch_Tree");
+
+        // FlashShifter.StardewValleyExpandedCP_Fir_Tree : Fir Tree
+        public static readonly TreeTypeEnum Fir = new("FlashShifter.StardewValleyExpandedCP_Fir_Tree");
     }
 }

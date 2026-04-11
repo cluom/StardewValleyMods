@@ -138,5 +138,25 @@ namespace ControlTree.Framework
 
         // Tropi Ugli Fruit Tree
         public bool ChangeTropiUgliFruit { get; set; } = true;
+
+        // ===== SVE 果树 =====
+        // Pear Tree
+        public bool ChangePear { get; set; } = true;
+
+        // Nectarine Tree
+        public bool ChangeNectarine { get; set; } = true;
+
+        // Persimmon Tree
+        public bool ChangePersimmon { get; set; } = true;
+
+        // Money Tree
+        public bool ChangeMoneyTree { get; set; } = true;
+
+        // ===== SVE 野生树 =====
+        // Birch Tree
+        public bool ChangeBirch { get; set; } = true;
+
+        // Fir Tree
+        public bool ChangeFir { get; set; } = true;
     }
 }

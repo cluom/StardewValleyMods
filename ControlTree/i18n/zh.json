@@ -101,5 +101,21 @@
   "config.change_paradise_rangpur.name": "对<天堂黎檬树>生效",
   "config.change_paradise_rangpur.tooltip": "勾选时将对<天堂黎檬树>应用上面的设置",
   "config.change_tropi_ugli_fruit.name": "对<热带丑橘树>生效",
-  "config.change_tropi_ugli_fruit.tooltip": "勾选时将对<热带丑橘树>应用上面的设置"
+  "config.change_tropi_ugli_fruit.tooltip": "勾选时将对<热带丑橘树>应用上面的设置",
+  "config.page_sve_trees": "SVE树木",
+  "config.page_sve_trees_tooltip": "配置对哪些SVE树木应用效果",
+  "config.section_sve_fruit_trees": "SVE果树",
+  "config.section_sve_wild_trees": "SVE野生树",
+  "config.change_pear.name": "对<梨树>生效",
+  "config.change_pear.tooltip": "勾选时将对<梨树>应用上面的设置",
+  "config.change_nectarine.name": "对<油桃树>生效",
+  "config.change_nectarine.tooltip": "勾选时将对<油桃树>应用上面的设置",
+  "config.change_persimmon.name": "对<柿子树>生效",
+  "config.change_persimmon.tooltip": "勾选时将对<柿子树>应用上面的设置",
+  "config.change_money_tree.name": "对<摇钱树>生效",
+  "config.change_money_tree.tooltip": "勾选时将对<摇钱树>应用上面的设置",
+  "config.change_birch.name": "对<桦树>生效",
+  "config.change_birch.tooltip": "勾选时将对<桦树>应用上面的设置",
+  "config.change_fir.name": "对<冷杉树>生效",
+  "config.change_fir.tooltip": "勾选时将对<冷杉树>应用上面的设置"
 }

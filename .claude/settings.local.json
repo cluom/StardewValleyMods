@@ -66,7 +66,23 @@
       "Bash(/tmp/dotnet-install.sh --version 6.0.0 --install-dir \"C:/Program Files/dotnet\")",
       "WebFetch(domain:gist.github.com)",
       "Bash(dotnet new:*)",
-      "WebFetch(domain:docs.stardewmodding.net)"
+      "WebFetch(domain:docs.stardewmodding.net)",
+      "Bash(grep -i \"\\\\.png$\")",
+      "Bash(git -C \"D:/project/stardew_valley/StardewValleyMods\" remote -v)",
+      "Bash(curl -s \"https://api.github.com/search/repositories?q=StardewValley+FruitTree+language:C%23\" -H \"Accept: application/vnd.github.v3+json\")",
+      "Skill(pixel-art-creator)",
+      "Bash(rm -f *.png)",
+      "Bash(mkdir -p SVE_wild_trees_output)",
+      "Bash(dotnet-script)",
+      "Bash(ilspycmd \"E:/SteamLibrary/steamapps/common/Stardew Valley/Stardew Valley.dll\" -t \"StardewValley.TerrainFeatures.Tree\" -p)",
+      "Bash(ilspycmd \"E:/SteamLibrary/steamapps/common/Stardew Valley/Stardew Valley.dll\" -t \"StardewValley.TerrainFeatures.Tree\")",
+      "Bash(cat)",
+      "Bash(dotnet-script check_spritebatch.csx)",
+      "Bash(where ildasm:*)",
+      "Bash(sed -i 's/net8.0/net6.0/' /tmp/sbtest/sbtest.csproj)",
+      "Read(//tmp/**)",
+      "Bash(git:*)",
+      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)"
     ]
   }
 }

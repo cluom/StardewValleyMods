@@ -66,6 +66,21 @@ internal class ModEntry : Mod
             if (Config.ChangeTropiUgliFruit) TreePatch.ChangeTreeType(TreeTypeEnum.TropiUgliFruit.Id);
         }
 
+        // SVE 果树和野生树 - 仅在检测到 SVE 模组时注册
+        bool isSveLoaded = Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
+        if (isSveLoaded)
+        {
+            Monitor.Log("SVE detected, registering custom fruit trees and wild trees.");
+            // SVE 果树
+            if (Config.ChangePear) TreePatch.ChangeTreeType(TreeTypeEnum.Pear.Id);
+            if (Config.ChangeNectarine) TreePatch.ChangeTreeType(TreeTypeEnum.Nectarine.Id);
+            if (Config.ChangePersimmon) TreePatch.ChangeTreeType(TreeTypeEnum.Persimmon.Id);
+            if (Config.ChangeMoneyTree) TreePatch.ChangeTreeType(TreeTypeEnum.MoneyTree.Id);
+            // SVE 野生树
+            if (Config.ChangeBirch) TreePatch.ChangeTreeType(TreeTypeEnum.Birch.Id);
+            if (Config.ChangeFir) TreePatch.ChangeTreeType(TreeTypeEnum.Fir.Id);
+        }
+
         // 初始化高亮树木种子和树苗的高亮框颜色(用于配置界面)
         _highlightTreeSeedColor = Config.HighlightTreeSeedColor;
         _highlightSaplingColor = Config.HighlightSaplingColor;
@@ -480,6 +495,17 @@ internal class ModEntry : Mod
                 tooltip: () => Helper.Translation.Get("config.page_ridgeside_fruit_trees_tooltip")
             );
         }
+        // SVE 检测
+        bool isSveLoadedForConfig = Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
+        if (isSveLoadedForConfig)
+        {
+            configMenu.AddPageLink(
+                mod: ModManifest,
+                pageId: "sve_fruit_trees",
+                text: () => Helper.Translation.Get("config.page_sve_trees"),
+                tooltip: () => Helper.Translation.Get("config.page_sve_trees_tooltip")
+            );
+        }
 
         // ===== 原版树页面 =====
         configMenu.AddPage(
@@ -766,6 +792,97 @@ internal class ModEntry : Mod
                 {
                     Config.ChangeTropiUgliFruit = value;
                     TreePatch.ChangeTreeType(TreeTypeEnum.TropiUgliFruit.Id, value);
+                }
+            );
+        }
+
+        // ===== SVE 果树页面 =====
+        if (Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"))
+        {
+            configMenu.AddPage(
+                mod: ModManifest,
+                pageId: "sve_fruit_trees",
+                pageTitle: () => Helper.Translation.Get("config.page_sve_trees")
+            );
+            configMenu.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("config.section_sve_fruit_trees")
+            );
+            // Pear Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_pear.name"),
+                tooltip: () => Helper.Translation.Get("config.change_pear.tooltip"),
+                getValue: () => Config.ChangePear,
+                setValue: value =>
+                {
+                    Config.ChangePear = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.Pear.Id, value);
+                }
+            );
+            // Nectarine Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_nectarine.name"),
+                tooltip: () => Helper.Translation.Get("config.change_nectarine.tooltip"),
+                getValue: () => Config.ChangeNectarine,
+                setValue: value =>
+                {
+                    Config.ChangeNectarine = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.Nectarine.Id, value);
+                }
+            );
+            // Persimmon Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_persimmon.name"),
+                tooltip: () => Helper.Translation.Get("config.change_persimmon.tooltip"),
+                getValue: () => Config.ChangePersimmon,
+                setValue: value =>
+                {
+                    Config.ChangePersimmon = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.Persimmon.Id, value);
+                }
+            );
+            // Money Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_money_tree.name"),
+                tooltip: () => Helper.Translation.Get("config.change_money_tree.tooltip"),
+                getValue: () => Config.ChangeMoneyTree,
+                setValue: value =>
+                {
+                    Config.ChangeMoneyTree = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.MoneyTree.Id, value);
+                }
+            );
+            // SVE 野生树 section
+            configMenu.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("config.section_sve_wild_trees")
+            );
+            // Birch Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_birch.name"),
+                tooltip: () => Helper.Translation.Get("config.change_birch.tooltip"),
+                getValue: () => Config.ChangeBirch,
+                setValue: value =>
+                {
+                    Config.ChangeBirch = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.Birch.Id, value);
+                }
+            );
+            // Fir Tree
+            configMenu.AddBoolOption(
+                mod: ModManifest,
+                name: () => Helper.Translation.Get("config.change_fir.name"),
+                tooltip: () => Helper.Translation.Get("config.change_fir.tooltip"),
+                getValue: () => Config.ChangeFir,
+                setValue: value =>
+                {
+                    Config.ChangeFir = value;
+                    TreePatch.ChangeTreeType(TreeTypeEnum.Fir.Id, value);
                 }
             );
         }
