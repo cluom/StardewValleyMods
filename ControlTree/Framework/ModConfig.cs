@@ -116,6 +116,8 @@ namespace ControlTree.Framework
         public bool ChangeApple { get; set; } = true;
         // 行 6: 香蕉
         public bool ChangeBanana { get; set; } = true;
+        // 行 7: 芒果
+        public bool ChangeMango { get; set; } = true;
 
         // ===== 里奇赛德村果树 =====
         // Cherry Pluot Tree

@@ -82,7 +82,19 @@
       "Bash(sed -i 's/net8.0/net6.0/' /tmp/sbtest/sbtest.csproj)",
       "Read(//tmp/**)",
       "Bash(git:*)",
-      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)"
+      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)",
+      "Skill(pixel-plugin:pixel-setup)",
+      "Bash(xxd \"C:/Users/cluom/.claude/plugins/cache/pixel-plugin/pixel-plugin/0.5.0/pixel-plugin\")",
+      "mcp__aseprite__create_canvas",
+      "mcp__aseprite__get_sprite_info",
+      "mcp__aseprite__draw_pixels",
+      "mcp__aseprite__save_as",
+      "mcp__aseprite__export_sprite",
+      "Bash(where aseprite:*)",
+      "Bash(C:/Users/cluom/.claude/plugins/cache/pixel-plugin/pixel-plugin/0.5.0/bin/pixel-mcp create_canvas:*)",
+      "Bash(\"C:/Users/cluom/.claude/plugins/cache/pixel-plugin/pixel-plugin/0.5.0/bin/pixel-mcp-windows-amd64.exe\" --help)",
+      "Bash(\"E:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe\" --help)",
+      "Bash(\"E:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe\" --batch --script spirit_stones.lua)"
     ]
   }
 }

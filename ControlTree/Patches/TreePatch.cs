@@ -24,7 +24,7 @@ public static class TreePatch
     private static readonly HashSet<string> ControlTreeTypeValues = new();
 
     // 调试用 Monitor
-    private static IMonitor? LogMonitor;
+    internal static IMonitor? LogMonitor;
 
     // 供外部访问的配置
     internal static ModConfig? Config => _config;

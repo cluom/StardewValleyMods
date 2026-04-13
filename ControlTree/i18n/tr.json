@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "Yukarıdaki ayarları <Elma Ağacı>na uygulamak için işaretleyin",
   "config.change_banana.name": "<Muz Ağacı>na Uygula",
   "config.change_banana.tooltip": "Yukarıdaki ayarları <Muz Ağacı>na uygulamak için işaretleyin",
+  "config.change_mango.name": "<Mango Ağacı>na Uygula",
+  "config.change_mango.tooltip": "Yukarıdaki ayarları <Mango Ağacı>na uygulamak için işaretleyin",
   "config.change_oak.name": "<Meşe>Aya Uygula",
   "config.change_oak.tooltip": "Yukarıdaki ayarları <Meşe>Aya uygulamak için işaretleyin",
   "config.change_maple.name": "<Akçaağaç>Aya Uygula",

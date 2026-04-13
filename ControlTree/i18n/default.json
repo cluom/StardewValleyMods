@@ -74,6 +74,8 @@
   "config.change_apple.tooltip": "Check to apply the above settings to <Apple Tree>",
   "config.change_banana.name": "Apply to <Banana Tree>",
   "config.change_banana.tooltip": "Check to apply the above settings to <Banana Tree>",
+  "config.change_mango.name": "Apply to <Mango Tree>",
+  "config.change_mango.tooltip": "Check to apply the above settings to <Mango Tree>",
   "config.change_oak.name": "Apply to <Oak>",
   "config.change_oak.tooltip": "Check to apply the above settings to <Oak>",
   "config.change_maple.name": "Apply to <Maple>",

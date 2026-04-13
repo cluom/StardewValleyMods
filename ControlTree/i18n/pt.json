@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "Marque para aplicar as configurações acima a <Macieira>",
   "config.change_banana.name": "Aplicar a <Bananeira>",
   "config.change_banana.tooltip": "Marque para aplicar as configurações acima a <Bananeira>",
+  "config.change_mango.name": "Aplicar a <Mangueira>",
+  "config.change_mango.tooltip": "Marque para aplicar as configurações acima a <Mangueira>",
   "config.change_oak.name": "Aplicar a <Carvalho>",
   "config.change_oak.tooltip": "Marque para aplicar as configurações acima a <Carvalho>",
   "config.change_maple.name": "Aplicar a <Bordo>",

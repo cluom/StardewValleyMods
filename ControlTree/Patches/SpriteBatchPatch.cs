@@ -21,6 +21,9 @@ public static class SpriteBatchPatch
     // 强制缩小（用于 FruitTree 等独立渲染的树木）
     public static bool ForceMinish { get; set; }
 
+    // 隐藏 FruitTree.draw 中挂在树干上的大果实（按物品 sprite 小尺寸识别）
+    public static bool HideFruitOnTree { get; set; }
+
     public static void InitConfig(ModConfig config)
     {
         Config = config;
@@ -59,6 +62,19 @@ public static class SpriteBatchPatch
     )
     {
         if (!CanChange) return true;
+
+        // 隐藏树干上的大果实：在 FruitTree.draw 范围内，非影子、非树冠尺寸的小 sprite 视作挂在树上的果实
+        if (HideFruitOnTree &&
+            texture != Game1.mouseCursors &&
+            texture != Game1.mouseCursors_1_6 &&
+            texture != Texture &&
+            sourceRectangle.HasValue &&
+            sourceRectangle.Value.Width <= 32 &&
+            sourceRectangle.Value.Height <= 32)
+        {
+            return false;
+        }
+
         switch (Config)
         {
             // 如果不渲染树干且当前渲染的是树干 则取消渲染
@@ -87,8 +103,8 @@ public static class SpriteBatchPatch
         }
 
         // 如果 要缩小树 或 (要替换贴图 并且 当前渲染的是影子)
-        // 注意：替换贴图已是预缩放版本，不再额外缩放；阴影始终单独缩放以匹配缩小后的树
-        // ForceMinish 用于 FruitTree 等独立渲染系统，使用预缩放贴图，不调整位置
+        // ForceMinish: FruitTree 独立渲染系统，sprite origin 在底部中心，只缩放即可，多段绘制各自保持锚点
+        // MinishTree / 阴影: Tree.draw 模式，需要额外位置修正
         if (
             ForceMinish ||
             Config is { MinishTree: true } && !isReplacingTexture ||

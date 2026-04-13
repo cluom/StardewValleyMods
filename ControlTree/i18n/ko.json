@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "체크하면 <사과나무>에 위 설정을 적용합니다",
   "config.change_banana.name": "<바나나 나무>에 적용",
   "config.change_banana.tooltip": "체크하면 <바나나 나무>에 위 설정을 적용합니다",
+  "config.change_mango.name": "<망고 나무>에 적용",
+  "config.change_mango.tooltip": "체크하면 <망고 나무>에 위 설정을 적용합니다",
   "config.change_oak.name": "<참나무>에 적용",
   "config.change_oak.tooltip": "체크하면 <참나무>에 위 설정을 적용합니다",
   "config.change_maple.name": "<단풍나무>에 적용",

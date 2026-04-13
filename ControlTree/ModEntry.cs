@@ -693,6 +693,13 @@ internal class ModEntry : Mod
             getValue: () => Config.ChangeBanana,
             setValue: value => Config.ChangeBanana = value
         );
+        configMenu.AddBoolOption(
+            mod: ModManifest,
+            name: () => Helper.Translation.Get("config.change_mango.name"),
+            tooltip: () => Helper.Translation.Get("config.change_mango.tooltip"),
+            getValue: () => Config.ChangeMango,
+            setValue: value => Config.ChangeMango = value
+        );
 
         // ===== 里奇赛德村果树页面 =====
         if (Helper.ModRegistry.IsLoaded("Rafseazz.RSVCP"))

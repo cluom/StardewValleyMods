@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Apfelbaum> anzuwenden",
   "config.change_banana.name": "Anwenden auf <Bananenbaum>",
   "config.change_banana.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Bananenbaum> anzuwenden",
+  "config.change_mango.name": "Anwenden auf <Mangobaum>",
+  "config.change_mango.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Mangobaum> anzuwenden",
   "config.change_oak.name": "Anwenden auf <Eiche>",
   "config.change_oak.tooltip": "Aktivieren, um die oben genannten Einstellungen auf <Eiche> anzuwenden",
   "config.change_maple.name": "Anwenden auf <Ahorn>",

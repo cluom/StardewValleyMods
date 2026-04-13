@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "Marcar para aplicar la configuración anterior a <Manzano>",
   "config.change_banana.name": "Aplicar a <Banano>",
   "config.change_banana.tooltip": "Marcar para aplicar la configuración anterior a <Banano>",
+  "config.change_mango.name": "Aplicar a <Mango>",
+  "config.change_mango.tooltip": "Marcar para aplicar la configuración anterior a <Mango>",
   "config.change_oak.name": "Aplicar a <Roble>",
   "config.change_oak.tooltip": "Marcar para aplicar la configuración anterior a <Roble>",
   "config.change_maple.name": "Aplicar a <Arce>",

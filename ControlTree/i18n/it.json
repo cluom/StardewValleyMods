@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "Spunta per applicare le impostazioni sopra a <Melo>",
   "config.change_banana.name": "Applica a <Banano>",
   "config.change_banana.tooltip": "Spunta per applicare le impostazioni sopra a <Banano>",
+  "config.change_mango.name": "Applica a <Mango>",
+  "config.change_mango.tooltip": "Spunta per applicare le impostazioni sopra a <Mango>",
   "config.change_oak.name": "Applica a <Quercia>",
   "config.change_oak.tooltip": "Spunta per applicare le impostazioni sopra a <Quercia>",
   "config.change_maple.name": "Applica ad <Acero>",

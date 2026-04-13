@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "チェックすると<リンゴの木>に上記の設定を適用します",
   "config.change_banana.name": "<バナナの木>に適用",
   "config.change_banana.tooltip": "チェックすると<バナナの木>に上記の設定を適用します",
+  "config.change_mango.name": "<マンゴーの木>に適用",
+  "config.change_mango.tooltip": "チェックすると<マンゴーの木>に上記の設定を適用します",
   "config.change_oak.name": "<樫>に適用",
   "config.change_oak.tooltip": "チェックすると<樫>に上記の設定を適用します",
   "config.change_maple.name": "<楓>に適用",

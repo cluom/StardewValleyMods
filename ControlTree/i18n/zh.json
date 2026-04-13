@@ -70,6 +70,8 @@
   "config.change_apple.tooltip": "勾选时将对<苹果树>应用上面的设置",
   "config.change_banana.name": "对<香蕉树>生效",
   "config.change_banana.tooltip": "勾选时将对<香蕉树>应用上面的设置",
+  "config.change_mango.name": "对<芒果树>生效",
+  "config.change_mango.tooltip": "勾选时将对<芒果树>应用上面的设置",
   "config.change_oak.name": "对<橡树>生效",
   "config.change_oak.tooltip": "勾选时将对<橡树>应用上面的设置",
   "config.change_maple.name": "对<枫树>生效",

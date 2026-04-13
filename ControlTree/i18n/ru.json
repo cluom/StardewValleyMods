@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "Отметьте, чтобы применить настройки к <Яблоне>",
   "config.change_banana.name": "Применить к <Банановому дереву>",
   "config.change_banana.tooltip": "Отметьте, чтобы применить настройки к <Банановому дереву>",
+  "config.change_mango.name": "Применить к <Манговому дереву>",
+  "config.change_mango.tooltip": "Отметьте, чтобы применить настройки к <Манговому дереву>",
   "config.change_oak.name": "Применить к <Дубу>",
   "config.change_oak.tooltip": "Отметьте, чтобы применить настройки к <Дубу>",
   "config.change_maple.name": "Применить к <Клёну>",

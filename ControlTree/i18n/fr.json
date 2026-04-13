@@ -68,6 +68,8 @@
   "config.change_apple.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Pommier>",
   "config.change_banana.name": "Appliquer au <Bananier>",
   "config.change_banana.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Bananier>",
+  "config.change_mango.name": "Appliquer au <Manguier>",
+  "config.change_mango.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Manguier>",
   "config.change_oak.name": "Appliquer au <Chêne>",
   "config.change_oak.tooltip": "Cochez pour appliquer les paramètres ci-dessus au <Chêne>",
   "config.change_maple.name": "Appliquer à l<Érable>",
